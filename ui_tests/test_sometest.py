@@ -14,9 +14,9 @@ from pages.login_page import LoginPage
 from pages.product_page import ProductPage
 
 
-logger = logging.getLogger(__name__)
-logger.addHandler(ZebrunnerHandler())
-logger.setLevel(logging.INFO)
+# logger = logging.getLogger(__name__)
+# logger.addHandler(ZebrunnerHandler())
+# logger.setLevel(logging.INFO)
 
 
 def test_burger_button(driver_opening_and_closing):
