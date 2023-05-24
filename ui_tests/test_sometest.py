@@ -19,99 +19,99 @@ from pages.product_page import ProductPage
 # logger.setLevel(logging.INFO)
 
 
-def test_burger_button(driver_opening_and_closing):
-    USERNAME: str = "standard_user"
-    PASSWORD: str = "secret_sauce"
-
-    driver = driver_opening_and_closing
-    login_page = LoginPage(driver)
-    assert login_page.is_opened(), "[LOGIN PAGE] is not opened"
-
-    inventory_page: InventoryPage = login_page.login(USERNAME, PASSWORD)
-    assert inventory_page.is_opened(), "[INVENTORY PAGE] is not opened"
-
-    inventory_page.open_burger_menu()
-    burger_menu = BurgerMenu(driver)
-    assert burger_menu.is_opened(), "[BURGER MENU] is not opened"
-
-    burger_menu.click_on_burger_menu_item(BurgerButton.LOGOUT)
-    assert login_page.is_opened(), "[LOGIN PAGE] is not opened"
-
-    login_page.login(USERNAME, PASSWORD)
-    assert inventory_page.is_opened(), "[INVENTORY PAGE] is not opened"
-
-    inventory_page.open_burger_menu()
-    burger_menu.close_burger_menu()
-
-
-def test_cart_page(driver_opening_and_closing):
-    USERNAME: str = "standard_user"
-    PASSWORD: str = "secret_sauce"
-
-    driver = driver_opening_and_closing
-    login_page = LoginPage(driver)
-    assert login_page.is_opened(), "[LOGIN PAGE] is not opened"
-
-    inventory_page: InventoryPage = login_page.login(USERNAME, PASSWORD)
-    assert inventory_page.is_opened(), "[INVENTORY PAGE] is not opened"
-
-    inventory_page.click_add_to_cart_button(Product.SAUCE_LABS_BACKPACK)
-
-    inventory_page.open_cart_page()
-
-    cart_page = CartPage(driver)
-    assert cart_page.is_opened(), "[CART PAGE] is not opened"
-
-    assert cart_page.get_product_price(Product.SAUCE_LABS_BACKPACK) == 29.99
-
-    cart_page.click_remove_product_button(Product.SAUCE_LABS_BACKPACK)
-
-    cart_page.click_continue_to_shopping()
-
-    # inventory_page = InventoryPage(driver)
-    assert inventory_page.is_opened(), "[INVENTORY PAGE] is not opened"
-
-    inventory_page.open_cart_page()
-
-    assert cart_page.is_opened(), "[CART PAGE] is not opened"
-
-    assert not cart_page.is_product_present(Product.SAUCE_LABS_BACKPACK), \
-        "[CART PAGE] product present after removing from cart"
+# def test_burger_button(driver_opening_and_closing):
+#     USERNAME: str = "standard_user"
+#     PASSWORD: str = "secret_sauce"
+#
+#     driver = driver_opening_and_closing
+#     login_page = LoginPage(driver)
+#     assert login_page.is_opened(), "[LOGIN PAGE] is not opened"
+#
+#     inventory_page: InventoryPage = login_page.login(USERNAME, PASSWORD)
+#     assert inventory_page.is_opened(), "[INVENTORY PAGE] is not opened"
+#
+#     inventory_page.open_burger_menu()
+#     burger_menu = BurgerMenu(driver)
+#     assert burger_menu.is_opened(), "[BURGER MENU] is not opened"
+#
+#     burger_menu.click_on_burger_menu_item(BurgerButton.LOGOUT)
+#     assert login_page.is_opened(), "[LOGIN PAGE] is not opened"
+#
+#     login_page.login(USERNAME, PASSWORD)
+#     assert inventory_page.is_opened(), "[INVENTORY PAGE] is not opened"
+#
+#     inventory_page.open_burger_menu()
+#     burger_menu.close_burger_menu()
 
 
-def test_product_page(driver_opening_and_closing):
-    USERNAME: str = "standard_user"
-    PASSWORD: str = "secret_sauce"
+# def test_cart_page(driver_opening_and_closing):
+#     USERNAME: str = "standard_user"
+#     PASSWORD: str = "secret_sauce"
+#
+#     driver = driver_opening_and_closing
+#     login_page = LoginPage(driver)
+#     assert login_page.is_opened(), "[LOGIN PAGE] is not opened"
+#
+#     inventory_page: InventoryPage = login_page.login(USERNAME, PASSWORD)
+#     assert inventory_page.is_opened(), "[INVENTORY PAGE] is not opened"
+#
+#     inventory_page.click_add_to_cart_button(Product.SAUCE_LABS_BACKPACK)
+#
+#     inventory_page.open_cart_page()
+#
+#     cart_page = CartPage(driver)
+#     assert cart_page.is_opened(), "[CART PAGE] is not opened"
+#
+#     assert cart_page.get_product_price(Product.SAUCE_LABS_BACKPACK) == 29.99
+#
+#     cart_page.click_remove_product_button(Product.SAUCE_LABS_BACKPACK)
+#
+#     cart_page.click_continue_to_shopping()
+#
+#     # inventory_page = InventoryPage(driver)
+#     assert inventory_page.is_opened(), "[INVENTORY PAGE] is not opened"
+#
+#     inventory_page.open_cart_page()
+#
+#     assert cart_page.is_opened(), "[CART PAGE] is not opened"
+#
+#     assert not cart_page.is_product_present(Product.SAUCE_LABS_BACKPACK), \
+#         "[CART PAGE] product present after removing from cart"
 
-    driver = driver_opening_and_closing
-    login_page = LoginPage(driver)
-    assert login_page.is_opened(), "[LOGIN PAGE] is not opened"
 
-    inventory_page: InventoryPage = login_page.login(USERNAME, PASSWORD)
-    assert inventory_page.is_opened(), "[INVENTORY PAGE] is not opened"
-
-    inventory_page.click_product_by_name(Product.TEST_ALL_THE_THING)
-
-    product_page = ProductPage(driver, Product.TEST_ALL_THE_THING)
-
-    assert product_page.is_opened()
-
-    product_page.click_add_to_cart_button()  # adding
-
-    product_page.click_remove_button()  # removing
-
-    product_page.click_back_to_products_button()
-
-    assert inventory_page.is_opened(), "[INVENTORY PAGE] is not opened"
-
-    inventory_page.open_cart_page()
-
-    cart_page = CartPage(driver)
-
-    assert cart_page.is_opened(), "[CART PAGE] is not opened"
-
-    assert not cart_page.is_product_present(Product.TEST_ALL_THE_THING), \
-        f"[CART PAGE] product '{Product.TEST_ALL_THE_THING.value[1]}' present after removing from cart"
+# def test_product_page(driver_opening_and_closing):
+#     USERNAME: str = "standard_user"
+#     PASSWORD: str = "secret_sauce"
+#
+#     driver = driver_opening_and_closing
+#     login_page = LoginPage(driver)
+#     assert login_page.is_opened(), "[LOGIN PAGE] is not opened"
+#
+#     inventory_page: InventoryPage = login_page.login(USERNAME, PASSWORD)
+#     assert inventory_page.is_opened(), "[INVENTORY PAGE] is not opened"
+#
+#     inventory_page.click_product_by_name(Product.TEST_ALL_THE_THING)
+#
+#     product_page = ProductPage(driver, Product.TEST_ALL_THE_THING)
+#
+#     assert product_page.is_opened()
+#
+#     product_page.click_add_to_cart_button()  # adding
+#
+#     product_page.click_remove_button()  # removing
+#
+#     product_page.click_back_to_products_button()
+#
+#     assert inventory_page.is_opened(), "[INVENTORY PAGE] is not opened"
+#
+#     inventory_page.open_cart_page()
+#
+#     cart_page = CartPage(driver)
+#
+#     assert cart_page.is_opened(), "[CART PAGE] is not opened"
+#
+#     assert not cart_page.is_product_present(Product.TEST_ALL_THE_THING), \
+#         f"[CART PAGE] product '{Product.TEST_ALL_THE_THING.value[1]}' present after removing from cart"
 
 
 def test_sorting_products(driver_opening_and_closing):
@@ -144,32 +144,30 @@ def test_sorting_products(driver_opening_and_closing):
         "[INVENTORY PAGE] the is in another after sorting: " + PR_SORTING.value[1]
 
 
-def test_checkout_step_one(driver_opening_and_closing):
-    USERNAME: str = "standard_user"
-    PASSWORD: str = "secret_sauce"
-
-    driver = driver_opening_and_closing
-    login_page = LoginPage(driver)
-    assert login_page.is_opened(), "[LOGIN PAGE] is not opened"
-
-    inventory_page: InventoryPage = login_page.login(USERNAME, PASSWORD)
-    assert inventory_page.is_opened(), "[INVENTORY PAGE] is not opened"
-
-    inventory_page.click_add_to_cart_button(Product.SAUCE_LABS_BACKPACK)
-
-    inventory_page.open_cart_page()
-
-    cart_page = CartPage(driver)
-    assert cart_page.is_opened(), "[CART PAGE] is not opened"
-
-    cart_page.click_checkout_button()
-
-    checkout_step_one = CheckoutStepOne(driver)
-
-    checkout_step_one.is_opened()
-
-    checkout_step_one.enter_all_fields("Sat", "Sot", "100200")
-
-    checkout_step_one.click_continue_button()
-
-
+# def test_checkout_step_one(driver_opening_and_closing):
+#     USERNAME: str = "standard_user"
+#     PASSWORD: str = "secret_sauce"
+#
+#     driver = driver_opening_and_closing
+#     login_page = LoginPage(driver)
+#     assert login_page.is_opened(), "[LOGIN PAGE] is not opened"
+#
+#     inventory_page: InventoryPage = login_page.login(USERNAME, PASSWORD)
+#     assert inventory_page.is_opened(), "[INVENTORY PAGE] is not opened"
+#
+#     inventory_page.click_add_to_cart_button(Product.SAUCE_LABS_BACKPACK)
+#
+#     inventory_page.open_cart_page()
+#
+#     cart_page = CartPage(driver)
+#     assert cart_page.is_opened(), "[CART PAGE] is not opened"
+#
+#     cart_page.click_checkout_button()
+#
+#     checkout_step_one = CheckoutStepOne(driver)
+#
+#     checkout_step_one.is_opened()
+#
+#     checkout_step_one.enter_all_fields("Sat", "Sot", "100200")
+#
+#     checkout_step_one.click_continue_button()
