@@ -37,4 +37,3 @@ class LoginPage(BasePage):
         self.login_button.click()
 
         return InventoryPage(self.driver)
-

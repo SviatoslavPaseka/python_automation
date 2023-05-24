@@ -1,17 +1,13 @@
-import logging
-import pytest
-
-
-from enums.burger_menu_items import BurgerButton
-from enums.field_name import FieldName
+# from enums.burger_menu_items import BurgerButton
+# from enums.field_name import FieldName
 from enums.product_sorting import ProductSorting
-from enums.products import Product
-from pages.burger_menu import BurgerMenu
-from pages.cart_page import CartPage
-from pages.checkput_step_one_page import CheckoutStepOne
+# from enums.products import Product
+# from pages.burger_menu import BurgerMenu
+# from pages.cart_page import CartPage
+# from pages.checkput_step_one_page import CheckoutStepOne
 from pages.inventory_page import InventoryPage
 from pages.login_page import LoginPage
-from pages.product_page import ProductPage
+# from pages.product_page import ProductPage
 
 
 # logger = logging.getLogger(__name__)
