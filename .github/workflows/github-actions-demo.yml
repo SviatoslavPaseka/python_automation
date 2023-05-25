@@ -25,11 +25,11 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: 3.11
-#      - name: Install Chrome and Chrome WebDriver
-#        run: |
-#          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-#          sudo dpkg -i google-chrome-stable_current_amd64.deb
-#          sudo apt-get install -f
+      - name: Install Chrome and Chrome WebDriver
+        run: |
+          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo dpkg -i google-chrome-stable_current_amd64.deb
+          sudo apt-get install -f
 #          LATEST_CHROMEDRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)
 #          wget https://chromedriver.storage.googleapis.com/$LATEST_CHROMEDRIVER_VERSION/chromedriver_linux64.zip
 #          unzip chromedriver_linux64.zip
