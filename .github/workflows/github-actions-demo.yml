@@ -35,8 +35,8 @@ jobs:
 #          unzip chromedriver_linux64.zip
 #          chmod +x chromedriver
 #          sudo mv chromedriver /usr/local/bin/
-      - name: Start selenoid
-        uses: Xotabu4/selenoid-github-action@v2
+#      - name: Start selenoid
+#        uses: Xotabu4/selenoid-github-action@v2
 
       - name: Install dependencies
         run: python -m pip install --upgrade pip && python -m pip install selenium && python -m pip install pytest
