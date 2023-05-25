@@ -16,7 +16,7 @@ class LoginPage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
         self.driver = driver
-        self.driver.get(URL)
+        self.driver.get(url=URL)
         self.username_field = None
         self.password_field = None
         self.login_button = None
