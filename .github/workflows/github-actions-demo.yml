@@ -6,26 +6,17 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Pull the project into the runner
+      - name: Pull project
         uses: actions/checkout@v3
-
-      - name: Set up Python
+      - name: Start selenoid
+        uses: Xotabu4/selenoid-github-action@v2
+      - name: Install python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.11
+          python-version: '3.10'
 
-      - name: Install dependencies
-        run: python -m pip install --upgrade pip && python -m pip install selenium && python -m pip install pytest
-
-      - name: Start Selenoid server
-        uses: n-ton4/selenoid-github-action@master
-        id: start-selenoid
-        continue-on-error: false
-        with:
-          version: 1.10.1
-          args: -limit 10
-          browsers: chrome
-          last-versions: 1
+      - name: Setup different needs
+        run: python -m pip install pytest-zebrunner && python -m pip install selenium && python -m pip install pytest
 
       - name: Run tests
-        run: python3 -m pytest ui_tests/test_sort_item_on_main_page.py
+        run: python -m pytest -s -v ui_tests/test_sort_item_on_main_page.py
