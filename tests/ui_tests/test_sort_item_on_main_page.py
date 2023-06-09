@@ -3,12 +3,12 @@ import logging
 from src.web_ui.pages.inventory_page import InventoryPage
 from src.web_ui.pages.login_page import LoginPage
 from src.web_ui.enums.product_sorting import ProductSorting
-from pytest_zebrunner.zebrunner_logging import ZebrunnerHandler
-
-
-logger = logging.getLogger(__name__)
-logger.addHandler(ZebrunnerHandler())
-logger.setLevel(logging.INFO)
+# from pytest_zebrunner.zebrunner_logging import ZebrunnerHandler
+#
+#
+# logger = logging.getLogger(__name__)
+# logger.addHandler(ZebrunnerHandler())
+# logger.setLevel(logging.INFO)
 
 
 def test_sorting_products(driver_opening_and_closing):
