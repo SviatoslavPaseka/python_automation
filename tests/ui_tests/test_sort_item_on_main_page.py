@@ -19,8 +19,8 @@ def test_sorting_products(driver_opening_and_closing):
     AL_SORTING: ProductSorting = ProductSorting.ALPHABET
     PR_SORTING: ProductSorting = ProductSorting.PRICE
 
-    driver = driver_opening_and_closing
-    login_page = LoginPage(driver)
+    driver1 = driver_opening_and_closing
+    login_page = LoginPage(driver1)
     assert login_page.is_opened(), "[LOGIN PAGE] is not opened"
 
     inventory_page: InventoryPage = login_page.login(USERNAME, PASSWORD)
