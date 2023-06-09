@@ -8,8 +8,10 @@ jobs:
     steps:
       - name: Pull project
         uses: actions/checkout@v3
+
       - name: Start selenoid
         uses: Xotabu4/selenoid-github-action@v2
+
       - name: Install python
         uses: actions/setup-python@v4
         with:
