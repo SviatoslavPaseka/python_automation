@@ -1,10 +1,9 @@
 from selenium.webdriver.common.by import By
 
-from enums.product_sorting import ProductSorting
-from enums.products import Product
-from pages.base_page import BasePage
+from src.web_ui.enums.product_sorting import ProductSorting
+from src.web_ui.enums.products import Product
+from src.web_ui.pages.base_page import BasePage
 from selenium.webdriver.support import expected_conditions as EC
-from pages.burger_menu import BurgerMenu
 
 URL = "https://www.saucedemo.com/inventory.html"
 

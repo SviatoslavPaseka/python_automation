@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
-from pages.base_page import BasePage
-from pages.inventory_page import InventoryPage
+from src.web_ui.pages.base_page import BasePage
+from src.web_ui.pages.inventory_page import InventoryPage
 from selenium.webdriver.support import expected_conditions as EC
 
 URL = "https://www.saucedemo.com/"

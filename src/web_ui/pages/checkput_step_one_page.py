@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
-from enums.field_name import FieldName
-from pages.base_page import BasePage
+from src.web_ui.enums.field_name import FieldName
+from src.web_ui.pages.base_page import BasePage
 from selenium.webdriver.support import expected_conditions as EC
 
 URL = "https://www.saucedemo.com/checkout-step-one.html"

@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
-from enums.burger_menu_items import BurgerButton
-from pages.base_page import BasePage
+from src.web_ui.enums.burger_menu_items import BurgerButton
+from src.web_ui.pages.base_page import BasePage
 from selenium.webdriver.support import expected_conditions as EC
 
 URL = "https://www.saucedemo.com/inventory.html"

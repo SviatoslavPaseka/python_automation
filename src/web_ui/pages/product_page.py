@@ -1,7 +1,7 @@
 from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
-from enums.products import Product
-from pages.base_page import BasePage
+from src.web_ui.enums.products import Product
+from src.web_ui.pages.base_page import BasePage
 from selenium.webdriver.support import expected_conditions as EC
 
 URL = "https://www.saucedemo.com/inventory-item.html?id={0}"
