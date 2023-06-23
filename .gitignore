@@ -1,0 +1,4 @@
+venv/
+*.pyc
+/src/resources/__*.ini
+/agent.yaml
